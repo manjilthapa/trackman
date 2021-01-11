@@ -1,13 +1,11 @@
 import React from "react";
 import "./App.css";
-import * as facilityService from "../src/services/FacilityService";
+import Facilities from "./pages/facilities/Facilities";
 
 function App() {
-  const data = facilityService.getAllFacilities();
-  console.log(data);
   return (
     <div className="App">
-      <h1>Test</h1>
+      <Facilities />
     </div>
   );
 }
