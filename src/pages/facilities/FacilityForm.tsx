@@ -11,7 +11,8 @@ import {
 } from "@material-ui/core";
 import { InputField } from "../../components/InputField";
 
-import * as facilityService from "../../services/FacilityServices";
+import * as facilityService from "../../services/FacilityService";
+import { Facility } from "../../types/Facility";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -42,6 +43,7 @@ const FacilityForm = () => {
   const handleSubmit = (e: any) => {
     e.preventDefault();
     console.log(facility);
+    facilityService.addFacility(facility);
   };
 
   return (
