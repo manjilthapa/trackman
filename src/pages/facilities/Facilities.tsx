@@ -8,6 +8,7 @@ import {
   CardActionArea,
   CardContent,
   Typography,
+  Grid,
 } from "@material-ui/core";
 
 import { CustomDialog } from "../../components/CustomDialog";
@@ -24,6 +25,10 @@ const useStyles = makeStyles((theme) => ({
   addButton: {
     position: "absolute",
     right: "10px",
+  },
+  gridContent: {
+    flexGrow: 1,
+    margin: theme.spacing(3),
   },
 }));
 
@@ -63,32 +68,34 @@ const Facilities = () => {
           <FacilityForm />
         </CustomDialog>
       </Paper>
-      <div>
+      <Grid container spacing={2} className={classes.gridContent}>
         {facilities &&
           facilities.map((facility) => {
             return (
-              <Card>
-                <CardActionArea>
-                  <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                      {facility.name}
-                    </Typography>
-                    <Typography gutterBottom variant="h5" component="div">
-                      {facility.type}
-                    </Typography>
-                    <Typography
-                      variant="body2"
-                      color="textSecondary"
-                      component="p"
-                    >
-                      {facility.address}
-                    </Typography>
-                  </CardContent>
-                </CardActionArea>
-              </Card>
+              <Grid item xs={3}>
+                <Card>
+                  <CardActionArea>
+                    <CardContent>
+                      <Typography variant="h5" component="div">
+                        {facility.name}
+                      </Typography>
+                      <Typography variant="h5" component="div">
+                        {facility.type}
+                      </Typography>
+                      <Typography
+                        variant="body2"
+                        color="textSecondary"
+                        component="p"
+                      >
+                        {facility.address}
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
+                </Card>
+              </Grid>
             );
           })}
-      </div>
+      </Grid>
     </>
   );
 };
