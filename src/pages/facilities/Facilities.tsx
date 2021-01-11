@@ -4,6 +4,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Paper, Button } from "@material-ui/core";
 
 import { CustomDialog } from "../../components/CustomDialog";
+import FacilityForm from "./FacilityForm";
+
+//import * as facilityService from "../../services/FacilityServices";
 
 const useStyles = makeStyles((theme) => ({
   pageContent: {
@@ -35,7 +38,9 @@ const Facilities = () => {
         title="Facility Form"
         openDialog={openDialog}
         setOpenDialog={setOpenDialog}
-      ></CustomDialog>
+      >
+        <FacilityForm />
+      </CustomDialog>
     </Paper>
   );
 };
