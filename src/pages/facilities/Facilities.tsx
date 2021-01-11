@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import { makeStyles } from "@material-ui/core/styles";
 import { Paper, Button } from "@material-ui/core";
@@ -6,7 +6,7 @@ import { Paper, Button } from "@material-ui/core";
 import { CustomDialog } from "../../components/CustomDialog";
 import FacilityForm from "./FacilityForm";
 
-//import * as facilityService from "../../services/FacilityServices";
+import * as facilityService from "../../services/FacilityServices";
 
 const useStyles = makeStyles((theme) => ({
   pageContent: {
@@ -22,6 +22,16 @@ const useStyles = makeStyles((theme) => ({
 const Facilities = () => {
   const classes = useStyles();
   const [openDialog, setOpenDialog] = useState(false);
+  const [facilities, setFacilities] = useState();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const value = await facilityService.getAllFacilities();
+      //console.log(value);
+      setFacilities(value);
+    };
+    fetchData();
+  }, []);
 
   return (
     <Paper className={classes.pageContent}>

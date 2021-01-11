@@ -11,7 +11,7 @@ import {
 } from "@material-ui/core";
 import { InputField } from "../../components/InputField";
 
-//import * as facilityService from "../../services/FacilityServices";
+import * as facilityService from "../../services/FacilityServices";
 
 const useStyles = makeStyles((theme) => ({
   root: {
